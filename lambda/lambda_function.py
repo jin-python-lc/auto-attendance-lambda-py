@@ -76,6 +76,10 @@ def lambda_handler(event, contex):
     while yearmonth_correct != month_html:
         time.sleep(1)
         driver.find_element_by_css_selector('span.ui-icon.ui-icon-arrow-r').click()
+        time.sleep(1)
+        elements_month = driver.find_elements(By.CLASS_NAME, 'calYearMonth')
+        for i in elements_month:
+            month_html = i.text
 
 
     # 今月の平日を全て取得して今日を探しクリック
